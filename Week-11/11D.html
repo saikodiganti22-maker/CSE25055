@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mobile Validation</title>
+  </head>
+  <body>
+    <h3>Mobile Number</h3>
+    <input type="text" id="mobile" onblur="checkMobile()" />
+    <p id="msg"></p>
+
+    <script>
+      function checkMobile() {
+        let num = document.getElementById("mobile").value;
+
+        if (num.length !== 10 || isNaN(num)) {
+          document.getElementById("msg").innerText =
+            "Enter valid 10-digit number";
+        } else {
+          document.getElementById("msg").innerText = "";
+        }
+      }
+    </script>
+  </body>
+</html>
