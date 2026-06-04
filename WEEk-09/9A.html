@@ -1,0 +1,162 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Number Programs</title>
+  <style>
+    body {
+      font-family: Verdana;
+      background-color: rgb(113, 209, 236);
+      color: rgb(214, 193, 193);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      background-color: rgb(153, 141, 231);
+      padding: 25px;
+      width: 320px;
+      border: 2px solid white;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    h2 {
+      text-shadow: 2px 2px 5px black;
+      margin-bottom: 15px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin: 15px;
+      border: 1px solid white;
+      background-color: rgb(170, 170, 239);
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    button {
+      margin: 6px;
+      padding: 10px;
+      background-color: royalblue;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: rgb(32, 233, 142);
+    }
+
+    #result {
+      margin-top: 15px;
+      padding: 12px;
+      background-color: rgb(190, 214, 140);
+      border: 1px solid rgb(231, 164, 164);
+      border-radius: 10px;
+      text-shadow: 1px 1px 3px black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Number Programs</h2>
+
+    <input type="text" id="num" placeholder="Enter a number">
+
+    <br>
+
+    <button onclick="even()">Even</button>
+    <button onclick="odd()">Odd</button>
+    <button onclick="prime()">Prime</button>
+    <button onclick="fact()">Factorial</button>
+    <button onclick="armstrong()">Armstrong</button>
+
+    <div id="result">Output will appear here</div>
+  </div>
+
+  <script>
+
+    function getNum() {
+      return Number(document.getElementById("num").value);
+    }
+
+    function show(msg) {
+      document.getElementById("result").innerHTML = msg;
+    }
+
+    function even() {
+      var n = getNum();
+      if (n % 2 == 0)
+        show(n + " is Even Number");
+      else
+        show(n + " is Not Even Number");
+    }
+
+    function odd() {
+      var n = getNum();
+      if (n % 2 != 0)
+        show(n + " is Odd Number");
+      else
+        show(n + " is Not Odd Number");
+    }
+
+    function prime() {
+      var n = getNum();
+      var i;
+      if (n <= 1) {
+        show(n + " is Not Prime Number");
+        return;
+      }
+      for (i = 2; i < n; i++) {
+        if (n % i == 0) {
+          show(n + " is Not Prime Number");
+          return;
+        }
+      }
+      show(n + " is Prime Number");
+    }
+
+    function fact() {
+      var n = getNum();
+      var f = 1;
+      var i;
+      if (n < 0) {
+        show("No factorial for negative numbers");
+        return;
+      }
+      for (i = 1; i <= n; i++) {
+        f = f * i;
+      }
+      show("Factorial of " + n + " is " + f);
+    }
+
+    function armstrong() {
+      var n = getNum();
+      var temp = n;
+      var sum = 0;
+      var r;
+
+      while (temp > 0) {
+        r = temp % 10;
+        sum = sum + (r * r * r);
+        temp = parseInt(temp / 10);
+      }
+
+      if (sum == n)
+        show(n + " is Armstrong Number");
+      else
+        show(n + " is Not Armstrong Number");
+    }
+
+  </script>
+
+</body>
+</html>
